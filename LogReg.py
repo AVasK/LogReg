@@ -28,13 +28,6 @@ class LogisticRegression:
     
     def __init__(self, X_train = False, Y_train = False, activation = "sigmoid", alpha = 0.1, epochs = 1000):
         self.verbose = True
-        self.X = np.array(X_train)
-        if self.verbose: print(self.X)
-        self.Y = np.array(Y_train)
-        self.M, self.N = self.X.shape
-        self.X = np.hstack((np.ones((self.M, 1)), self.X))
-        self.M, self.N = self.X.shape
-        if self.verbose: print(self.X)
         self.activation_type = activation
         self.alpha = alpha
         self.epochs = epochs
@@ -50,7 +43,7 @@ class LogisticRegression:
         
             self.M, self.N = self.X.shape
             self.X = np.hstack((np.ones((self.M, 1)), self.X))
-            
+            self.M, self.N = self.X.shape
             if self.verbose: print(self.X, self.Y, self.M, self.N)
         
         # dataset given on initialization <OR>
